@@ -62,6 +62,28 @@ tracing.workspace = true
 tracing-subscriber.workspace = true
 tracing-tree = "0.4.0"
 
+rustc_apfloat = { version = "0.2", optional = true }
+rustc_abi = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_abi", optional = true, features = ["nightly"] }
+rustc_arena = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_arena", optional = true }
+rustc_ast = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_ast", optional = true }
+rustc_attr_parsing = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_attr_parsing", optional = true }
+rustc_codegen_ssa = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_codegen_ssa", optional = true }
+rustc_data_structures = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_data_structures", optional = true }
+#rustc_driver = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_driver", optional = true }
+rustc_errors = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_errors", optional = true }
+rustc_hir = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_hir", optional = true }
+rustc_index = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_index", optional = true }
+rustc_index_macros = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_index_macros", optional = true }
+rustc_interface = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_interface", optional = true }
+rustc_metadata = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_metadata", optional = true }
+rustc_middle = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_middle", optional = true }
+rustc_session = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_session", optional = true }
+rustc_span = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_span", optional = true }
+rustc_target = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_target", optional = true }
+rustc_hashes = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_hashes", optional = true }
+rustc_type_ir = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_type_ir", optional = true }
+rustc_type_ir_macros = { path = "../../../../.rustup/toolchains/nightly-2026-04-11-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_type_ir_macros", optional = true }
+
 [dev-dependencies]
 pretty_assertions = "1.0"
 termcolor = "1.1.3"
