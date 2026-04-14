@@ -1,0 +1,101 @@
+OpCapability Shader
+OpMemoryModel Logical Simple
+OpEntryPoint Vertex %1 "main" %2 %3 %4 %5 %6 %7 %8 %9 %10 %11
+OpName %13 "B"
+OpMemberName %13 0 "0"
+OpName %14 "SomeStruct"
+OpMemberName %14 0 "a"
+OpMemberName %14 1 "b"
+OpMemberName %14 2 "c"
+OpName %15 "C"
+OpMemberName %15 0 "0"
+OpName %2 "a"
+OpName %3 "a_trans"
+OpName %4 "b"
+OpName %5 "b_trans"
+OpName %16 "SomeStruct"
+OpMemberName %16 0 "a"
+OpMemberName %16 1 "b"
+OpMemberName %16 2 "c"
+OpName %6 "c"
+OpName %7 "c_trans"
+OpName %8 "d"
+OpName %9 "d_trans"
+OpName %10 "e"
+OpName %11 "e_trans"
+OpName %17 "<core::marker::PhantomData<&()> as core::default::Default>::default"
+OpDecorate %2 Location 0
+OpDecorate %3 Location 1
+OpDecorate %4 Location 2
+OpDecorate %5 Location 3
+OpMemberDecorate %16 0 Offset 0
+OpMemberDecorate %16 1 Offset 4
+OpMemberDecorate %16 2 Offset 8
+OpDecorate %6 Location 4
+OpDecorate %7 Location 7
+OpDecorate %8 Location 10
+OpDecorate %9 Location 11
+OpDecorate %10 Location 12
+OpDecorate %11 Location 13
+%18 = OpTypeInt 32 0
+%19 = OpTypePointer Output %18
+%20 = OpTypeFloat 32
+%21 = OpTypeVector %20 3
+%13 = OpTypeStruct %21
+%22 = OpTypePointer Output %13
+%14 = OpTypeStruct %18 %20 %21
+%15 = OpTypeStruct %14
+%23 = OpTypePointer Output %15
+%24 = OpTypeVoid
+%25 = OpTypeFunction %24
+%2 = OpVariable  %19  Output
+%26 = OpConstant  %18  0
+%3 = OpVariable  %19  Output
+%27 = OpTypePointer Output %21
+%4 = OpVariable  %22  Output
+%28 = OpConstant  %20  0
+%29 = OpConstantComposite  %21  %28 %28 %28
+%5 = OpVariable  %22  Output
+%16 = OpTypeStruct %18 %20 %21
+%30 = OpTypePointer Output %14
+%6 = OpVariable  %23  Output
+%7 = OpVariable  %23  Output
+%8 = OpVariable  %19  Output
+%9 = OpVariable  %19  Output
+%10 = OpVariable  %19  Output
+%11 = OpVariable  %19  Output
+%1 = OpFunction  %24  None %25
+%31 = OpLabel
+OpStore %2 %26
+OpStore %3 %26
+%32 = OpInBoundsAccessChain  %27  %4 %26
+OpStore %32 %29
+%33 = OpInBoundsAccessChain  %27  %5 %26
+OpStore %33 %29
+%34 = OpCompositeConstruct  %16  %26 %28 %29
+%35 = OpInBoundsAccessChain  %30  %6 %26
+%36 = OpCompositeExtract  %18  %34 0
+%37 = OpCompositeExtract  %20  %34 1
+%38 = OpCompositeExtract  %21  %34 2
+%39 = OpCompositeConstruct  %14  %36 %37 %38
+OpStore %35 %39
+%40 = OpCompositeConstruct  %16  %26 %28 %29
+%41 = OpInBoundsAccessChain  %30  %7 %26
+%42 = OpCompositeExtract  %18  %40 0
+%43 = OpCompositeExtract  %20  %40 1
+%44 = OpCompositeExtract  %21  %40 2
+%45 = OpCompositeConstruct  %14  %42 %43 %44
+OpStore %41 %45
+%46 = OpFunctionCall  %24  %17
+OpStore %8 %26
+%47 = OpFunctionCall  %24  %17
+OpStore %9 %26
+OpStore %10 %26
+OpStore %11 %26
+OpNoLine
+OpReturn
+OpFunctionEnd
+%17 = OpFunction  %24  None %25
+%48 = OpLabel
+OpReturn
+OpFunctionEnd
