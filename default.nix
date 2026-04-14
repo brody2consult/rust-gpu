@@ -11,7 +11,15 @@ in with pkgs; stdenv.mkDerivation rec {
   # Allow cargo to download crates (even inside `nix-shell --pure`).
   SSL_CERT_FILE = "${cacert}/etc/ssl/certs/ca-bundle.crt";
 
-  nativeBuildInputs = [ rustup ];
+  nativeBuildInputs = [
+    rustup
+    pkg-config
+  ];
+
+  buildInputs = [
+    libgit2
+    openssl
+  ];
 
   # Runtime dependencies (for the example runners).
   LD_LIBRARY_PATH = with xorg; lib.makeLibraryPath [
