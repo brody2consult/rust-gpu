@@ -290,7 +290,7 @@ macro_rules! simple_uni_op {
 }
 
 fn memset_fill_u16(b: u8) -> u16 {
-    0xbad as u16 | ((b as u16) << 10)
+    0xbad_u16 | ((b as u16) << 10)
 }
 
 fn memset_fill_u32(b: u8) -> u32 {
