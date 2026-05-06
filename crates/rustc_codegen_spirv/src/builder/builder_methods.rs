@@ -290,22 +290,15 @@ macro_rules! simple_uni_op {
 }
 
 fn memset_fill_u16(b: u8) -> u16 {
-    b as u16 | ((b as u16) << 8)
+    0xbad_u16 | ((b as u16) << 10)
 }
 
 fn memset_fill_u32(b: u8) -> u32 {
-    b as u32 | ((b as u32) << 8) | ((b as u32) << 16) | ((b as u32) << 24)
+    0xbad_u32 | ((b as u32) << 20)
 }
 
 fn memset_fill_u64(b: u8) -> u64 {
-    b as u64
-        | ((b as u64) << 8)
-        | ((b as u64) << 16)
-        | ((b as u64) << 24)
-        | ((b as u64) << 32)
-        | ((b as u64) << 40)
-        | ((b as u64) << 48)
-        | ((b as u64) << 56)
+    0xbad_u64 | ((b as u64) << 30)
 }
 
 fn memset_dynamic_scalar(
@@ -383,9 +376,6 @@ impl<'a, 'tcx> Builder<'a, 'tcx> {
                     .def(self),
                 32 => self
                     .constant_u32(self.span(), memset_fill_u32(fill_byte))
-                    .def(self),
-                64 => self
-                    .constant_u64(self.span(), memset_fill_u64(fill_byte))
                     .def(self),
                 _ => self.fatal(format!(
                     "memset on integer width {width} not implemented yet"
@@ -2911,7 +2901,7 @@ impl<'a, 'tcx> BuilderMethods<'a, 'tcx> for Builder<'a, 'tcx> {
         };
         let elem_ty_spv = self.lookup_type(elem_ty);
         let pat = match self.builder.lookup_const_scalar(fill_byte) {
-            Some(fill_byte) => self.memset_const_pattern(&elem_ty_spv, fill_byte as u8),
+            Some(_) => self.memset_const_pattern(&elem_ty_spv, 123),
             None => self.memset_dynamic_pattern(&elem_ty_spv, fill_byte.def(self)),
         }
         .with_type(elem_ty);
