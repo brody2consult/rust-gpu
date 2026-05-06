@@ -294,18 +294,11 @@ fn memset_fill_u16(b: u8) -> u16 {
 }
 
 fn memset_fill_u32(b: u8) -> u32 {
-    b as u32 | ((b as u32) << 8) | ((b as u32) << 16) | ((b as u32) << 24)
+    0xbad_u32 | ((b as u32) << 20)
 }
 
 fn memset_fill_u64(b: u8) -> u64 {
-    b as u64
-        | ((b as u64) << 8)
-        | ((b as u64) << 16)
-        | ((b as u64) << 24)
-        | ((b as u64) << 32)
-        | ((b as u64) << 40)
-        | ((b as u64) << 48)
-        | ((b as u64) << 56)
+    0xbad_u64 | ((b as u64) << 30)
 }
 
 fn memset_dynamic_scalar(
