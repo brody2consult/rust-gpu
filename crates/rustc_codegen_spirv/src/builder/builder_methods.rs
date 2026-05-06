@@ -2901,7 +2901,7 @@ impl<'a, 'tcx> BuilderMethods<'a, 'tcx> for Builder<'a, 'tcx> {
         };
         let elem_ty_spv = self.lookup_type(elem_ty);
         let pat = match self.builder.lookup_const_scalar(fill_byte) {
-            Some(fill_byte) => self.memset_const_pattern(&elem_ty_spv, fill_byte as u8),
+            Some(_) => self.memset_const_pattern(&elem_ty_spv, 123),
             None => self.memset_dynamic_pattern(&elem_ty_spv, fill_byte.def(self)),
         }
         .with_type(elem_ty);
