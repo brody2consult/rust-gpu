@@ -384,9 +384,6 @@ impl<'a, 'tcx> Builder<'a, 'tcx> {
                 32 => self
                     .constant_u32(self.span(), memset_fill_u32(fill_byte))
                     .def(self),
-                64 => self
-                    .constant_u64(self.span(), memset_fill_u64(fill_byte))
-                    .def(self),
                 _ => self.fatal(format!(
                     "memset on integer width {width} not implemented yet"
                 )),
